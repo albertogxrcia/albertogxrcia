@@ -1,0 +1,19 @@
+name: svg al dia
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: los svg tienen que coincidir con data/perfil.json
+        run: node tools/build-svg.mjs --comprobar

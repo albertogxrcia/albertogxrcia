@@ -1,0 +1,69 @@
+{
+  "nombre": "Alberto García Lara",
+  "titular": "Software Engineer. Producto en producción, de punta a punta.",
+  "pastillas": [
+    "Tres productos en producción",
+    "NTT Data · Snowflake y dbt",
+    "Granada, en remoto"
+  ],
+  "productos": [
+    {
+      "id": "sofia-care",
+      "nombre": "Sofia Care",
+      "bajada": "CRM clínico y asistente de WhatsApp. En producción desde julio de 2026 en un hospital privado de Santa Fe, Argentina.",
+      "stack": ["Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL con RLS", "WhatsApp Cloud API", "Gemini", "Redis", "Vercel"],
+      "metricas": [
+        { "valor": "22", "etiqueta": "tablas aisladas por clínica" },
+        { "valor": "20", "prefijo": "+", "etiqueta": "procedimientos idempotentes" },
+        { "valor": "15", "etiqueta": "sanitarios lo usan a diario" }
+      ],
+      "remate": "Agenda, cancela y reprograma turnos 24/7 en lenguaje natural, con la lógica de obras sociales argentinas."
+    },
+    {
+      "id": "panel-metricas",
+      "nombre": "Panel de métricas comerciales",
+      "bajada": "Producto multi-cliente para infoproductores, sobre una sola base con aislamiento por RLS. Responsable de producto.",
+      "stack": ["Vite", "React", "Recharts", "Supabase", "PostgreSQL", "API de GoHighLevel", "Vercel"],
+      "metricas": [
+        { "valor": "7", "etiqueta": "pantallas de cliente" },
+        { "valor": "7", "etiqueta": "sincronizaciones programadas" },
+        { "valor": "1", "etiqueta": "base para todos los clientes" }
+      ],
+      "remate": "Integración continua que levanta todas las migraciones en limpio y las verifica contra un doble de la API del CRM."
+    },
+    {
+      "id": "anonimizador",
+      "nombre": "Anonimizador de expedientes",
+      "bajada": "Aplicación de escritorio para un despacho de litigación tributaria. Funciona entera en el ordenador del despacho.",
+      "stack": ["Python", "PyMuPDF", "spaCy", "Tesseract OCR", "customtkinter", "PyInstaller", "pytest"],
+      "metricas": [
+        { "valor": "1.289", "etiqueta": "pruebas automáticas en verde" },
+        { "valor": "147", "sufijo": " %", "etiqueta": "más detecciones con OCR" },
+        { "valor": "1.315", "etiqueta": "archivos del expediente real" }
+      ],
+      "remate": "Ningún documento llega a una IA sin salir anonimizado o marcado como pendiente de revisar."
+    }
+  ],
+  "decision": {
+    "titulo": "De tres agentes que inventaban a una máquina de estados",
+    "antes": {
+      "titulo": "Antes",
+      "elementos": ["Agente ReAct", "Agente ReAct", "Agente ReAct"],
+      "nota": "Inventaban datos y decían haber escalado a un humano sin hacerlo."
+    },
+    "ahora": {
+      "titulo": "Ahora",
+      "estados": ["mensaje", "intención", "consulta", "acción", "respuesta"],
+      "refuerzo": "Una prueba de regresión en SQL por cada regla de negocio.",
+      "nota": "El modelo entiende y redacta. No afirma nada que no esté en la base."
+    }
+  },
+  "stack": [
+    { "familia": "Lenguajes", "items": ["TypeScript", "JavaScript", "SQL", "Python", "Java", "C/C++"] },
+    { "familia": "Frontend", "items": ["Next.js", "React", "Vite", "Tailwind CSS", "Recharts"] },
+    { "familia": "Backend y datos", "items": ["PostgreSQL", "Supabase", "Node.js", "Redis", "Snowflake", "dbt"] },
+    { "familia": "IA", "items": ["Google Gemini", "OpenAI", "spaCy", "MCP"] },
+    { "familia": "Integraciones", "items": ["n8n", "GoHighLevel", "WhatsApp Cloud API", "Meta"] },
+    { "familia": "Infraestructura", "items": ["Docker", "Vercel", "Cloudflare Pages", "servidor Ubuntu propio", "Git"] }
+  ]
+}

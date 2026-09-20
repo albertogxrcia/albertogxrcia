@@ -1,0 +1,31 @@
+name: serpiente
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: generar los svg del calendario
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/serpiente.svg?color_snake=#4a6fa5&color_dots=#eef3fb,#c3dcfb,#8ec5fc,#5f93d6,#2f5b96
+            dist/serpiente-oscura.svg?color_snake=#8ec5fc&color_dots=#1c1c33,#2f4a73,#4a6fa5,#6fa3e0,#8ec5fc
+
+      - name: empujar a la rama output
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

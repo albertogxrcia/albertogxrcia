@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vista previa del perfil</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font:15px/1.5 ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#e6edf3;padding:28px}
+  h1{font-size:20px;margin-bottom:4px}
+  p.sub{color:#8b949e;font-size:13px;margin-bottom:22px}
+  .barra{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+  button{font:inherit;font-size:13px;padding:7px 13px;border-radius:8px;border:1px solid #30363d;background:#161b22;color:#e6edf3;cursor:pointer}
+  button.on{border-color:#8ec5fc;color:#8ec5fc}
+  .lienzo{max-width:900px;margin:0 auto;padding:22px;border-radius:12px;border:1px solid #30363d;background:#0d1117}
+  .lienzo.claro{background:#ffffff;border-color:#d0d7de}
+  .lienzo.movil{max-width:375px}
+  .lienzo img{display:block;width:100%;margin-bottom:18px}
+  .pie{max-width:900px;margin:18px auto 0;color:#8b949e;font-size:12.5px}
+</style>
+</head>
+<body>
+<h1>Vista previa del perfil</h1>
+<p class="sub">Los mismos SVG que sirve GitHub. Recarga la pagina para ver las animaciones de entrada otra vez.</p>
+<div class="barra">
+  <button id="bTema" class="on" type="button">Fondo oscuro</button>
+  <button id="bAncho" type="button">Ancho de GitHub</button>
+  <button id="bRecarga" type="button">Repetir animaciones</button>
+</div>
+<div class="lienzo" id="lienzo">
+  <img src="assets/hero.svg" alt="Cabecera">
+  <img src="assets/producto-sofia-care.svg" alt="Sofia Care">
+  <img src="assets/producto-panel-metricas.svg" alt="Panel de metricas comerciales">
+  <img src="assets/producto-anonimizador.svg" alt="Anonimizador de expedientes">
+  <img src="assets/decision-determinista.svg" alt="De agentes ReAct a maquina de estados">
+  <img src="assets/stack.svg" alt="Stack tecnico">
+</div>
+<p class="pie">Si algo se sale de su caja, se ajusta en <code>tools/build-svg.mjs</code> y se regenera con <code>node tools/build-svg.mjs</code>.</p>
+<script>
+  const lienzo = document.getElementById('lienzo');
+  const bTema = document.getElementById('bTema');
+  const bAncho = document.getElementById('bAncho');
+  bTema.addEventListener('click', () => {
+    const claro = lienzo.classList.toggle('claro');
+    bTema.textContent = claro ? 'Fondo claro' : 'Fondo oscuro';
+    bTema.classList.toggle('on', !claro);
+  });
+  bAncho.addEventListener('click', () => {
+    const movil = lienzo.classList.toggle('movil');
+    bAncho.textContent = movil ? 'Ancho de movil' : 'Ancho de GitHub';
+    bAncho.classList.toggle('on', movil);
+  });
+  document.getElementById('bRecarga').addEventListener('click', () => {
+    lienzo.querySelectorAll('img').forEach(img => { const s = img.src; img.src = ''; img.src = s; });
+  });
+</script>
+</body>
+</html>
